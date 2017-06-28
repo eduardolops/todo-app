@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/loader.js",
   "dependencies": {},
   "devDependencies": {
     "body-parser": "^1.15.2",
@@ -13,7 +13,8 @@
     "pm2": "^2.1.5"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon",
+    "production": "pm2 start src/loader.js --name todo-app"
   },
   "keywords": [],
   "author": "",
