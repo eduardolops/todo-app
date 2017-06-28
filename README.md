@@ -1,2 +1,2 @@
-# todo-app
+# to do app
 To do list an app to learning more about react js
