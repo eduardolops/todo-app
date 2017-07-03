@@ -5,7 +5,7 @@ module.exports = {
     entry: './src/index.jsx',
     output: {
         path: __dirname + '/public',
-        filename: './bundler.js'
+        filename: './app.js'
     },
     devServer: {
         port: 8080,
