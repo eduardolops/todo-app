@@ -9,6 +9,10 @@ export default props => {
             <tr key={todo._id}>
                 <td>{todo.description}</td>
                 <td>
+                    <IconButton style="success" icon="check"
+                                onClick={ () => props.handleMarkTask(todo, true) } />
+                    <IconButton style="warning" icon="undo" 
+                                onClick={ () => props.handleMarkTask(todo, false) } />
                     <IconButton style="danger" icon="trash-o" 
                                 onClick={ () => props.handleRemove(todo) } />
                 </td>
