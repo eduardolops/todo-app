@@ -5,7 +5,7 @@ import PageHeader from '../template/pageHeader'
 import Form from './form'
 import List from './list'
 
-const URL = 'http://127.0.0.1:3003/api/todo/'
+const URL = 'http://127.0.0.1:3003/api/todo'
 
 export default class Todo extends Component {
 
@@ -14,6 +14,7 @@ export default class Todo extends Component {
         this.state = { description: '', list: [] }
         this.handleChange = this.handleChange.bind(this)
         this.handleAdd = this.handleAdd.bind(this)
+        this.handleRemove = this.handleRemove.bind(this)
 
         this.refresh()
     }
@@ -32,6 +33,11 @@ export default class Todo extends Component {
         axios.post(URL, { description})
              .then( resp => this.refresh() )
     }
+
+    handleRemove(todo){
+        axios.delete(`${URL}/${todo._id}`)
+             .then( resp => this.refresh() )
+    }
     
     render(){
         return (
@@ -40,7 +46,7 @@ export default class Todo extends Component {
                 <Form handleAdd={this.handleAdd}
                       handleChange={this.handleChange}
                       description={this.state.description}/>
-                <List />
+                <List list={this.state.list} handleRemove={this.handleRemove} />
             </div>
         )
     }
