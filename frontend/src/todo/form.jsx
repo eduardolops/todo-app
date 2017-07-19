@@ -7,12 +7,13 @@ import IconButton from '../template/iconButton'
 import { changeDescription, search } from './todoActions'
 
 class TodoForm extends Component {
-    constructor(props){
+    
+    constructor(props) {
         super(props)
         this.keyHandler = this.keyHandler.bind(this)
     }
 
-    componentWillMount(){
+    componentWillMount() { 
         this.props.search()
     }
 
@@ -24,7 +25,7 @@ class TodoForm extends Component {
         }
     }
 
-    render(){
+    render() {
         return (
             <div role="form" className="todoForm row">
                 <Grid cols="12 9 10">
