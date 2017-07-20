@@ -7,7 +7,7 @@ import IconButton from '../template/iconButton'
 import { changeDescription, search } from './todoActions'
 
 class TodoForm extends Component {
-    
+
     constructor(props) {
         super(props)
         this.keyHandler = this.keyHandler.bind(this)
@@ -46,6 +46,6 @@ class TodoForm extends Component {
 }
 
 const mapStateToProps = state => ({ description: state.todo.description })
-const mapDispatchToProps = dispatch => bindActionCreators({ changeDescription }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ changeDescription, search }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoForm)
