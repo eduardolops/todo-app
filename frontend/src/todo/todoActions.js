@@ -22,3 +22,10 @@ export const add = (description) => {
              .then( resp => dispatch(search()) )
     }
 }
+
+export const markTask = (todo, task) => {
+    return dispatch => {
+        axios.put(`${URL}/${todo._id}`, { ...todo, done: task })
+             .then( resp => dispatch(search()) )
+    }
+}
