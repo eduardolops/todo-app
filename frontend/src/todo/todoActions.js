@@ -29,3 +29,10 @@ export const markTask = (todo, task) => {
              .then( resp => dispatch(search()) )
     }
 }
+
+export const removeTask = todo => {
+    return dispatch => {
+        axios.delete(`${URL}/${todo._id}`)
+             .then( resp => dispatch(search()) )
+    }
+}
