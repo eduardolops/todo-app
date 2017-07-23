@@ -7,6 +7,12 @@ export const changeDescription = event => ({
     payload: event.target.value
 })
 
+export const clear = () => {
+    return {
+        type: 'TODO_CLEARED',
+    }
+}
+
 export const search = () => {
     const request = axios.get(`${URL}?sort=-createdAt`)
     return {
@@ -18,7 +24,7 @@ export const search = () => {
 export const add = (description) => {
     return dispatch => {
         axios.post(URL, { description })
-             .then( resp => dispatch({ type: 'TODO_ADDED', payload: resp.data }) )
+             .then( resp => dispatch(clear()) )
              .then( resp => dispatch(search()) )
     }
 }
